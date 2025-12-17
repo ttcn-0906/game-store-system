@@ -12,7 +12,7 @@ env_path = current_dir / ".." / ".env"
 load_dotenv(dotenv_path=env_path)
 
 LOBBY_HOST = os.getenv('SERVER_HOST')
-LOBBY_PORT = os.getenv('DEVELOPER_PORT')
+LOBBY_PORT = int(os.getenv('DEVELOPER_PORT'))
 ENCODING = 'utf-8'
 HEADER_SIZE = 4
 NETWORK_BYTE_ORDER = '!I'

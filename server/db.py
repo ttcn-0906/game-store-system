@@ -12,7 +12,7 @@ env_path = current_dir / ".." / ".env"
 load_dotenv(dotenv_path=env_path)
 
 DB_HOST = os.getenv('DB_HOST')
-DB_PORT = os.getenv('DB_PORT')
+DB_PORT = int(os.getenv('DB_PORT'))
 DATABASE_FILE = 'users.json'
 STATS_FILE = 'data.json'
 ENCODING = 'utf-8'
