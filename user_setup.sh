@@ -5,7 +5,7 @@ VENV_NAME=".venv"
 SCREEN_NAME="game_system"
 
 echo "------------------------------------------------"
-echo "  Game Store System: Multi-Window Launcher"
+echo "  Game Store System: User Launcher"
 echo "------------------------------------------------"
 
 # 1. Environment Setup
