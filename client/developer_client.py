@@ -66,10 +66,10 @@ async def list_game_logic():
             print("No games found.")
             return []
 
-        print(f"{'No.':<4} | {'Game Name':<20} | {'ID':<10}")
+        print(f"{'No.':<4} | {'Game Name':<10} | {'ID':<10} | {'Description':<20}")
         print("-" * 40)
         for idx, game in enumerate(games, 1):
-            print(f"{idx:<4} | {game.get('gameName')[:8]:<20} | {game.get('gameId'):<10}")
+            print(f"{idx:<4} | {game.get('gameName'):<10} | {game.get('gameId')[:8]:<10} | {game.get('description'):<20}")
         return games
     else:
         print(f"[Error] Failed to fetch games: {response.get('errorMsg')}")
@@ -91,6 +91,7 @@ async def upload_game_logic():
 
         data = {
             "gameName": await get_input("Enter a name for this game: "),
+            "description": await get_input("Enter a description for this game: "),
             "files": [
                 {"filename": os.path.basename(file1_path), "content": file1_content},
                 {"filename": os.path.basename(file2_path), "content": file2_content}

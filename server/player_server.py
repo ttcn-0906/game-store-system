@@ -105,7 +105,8 @@ async def handle_list_games(data):
                 sanitized_list.append({
                     "gameName": game.get("gameName"),
                     "owner": game.get("owner"),
-                    "gameId": game.get("id")
+                    "gameId": game.get("id"),
+                    "description": game.get("description")
                 })
 
             return {"status": "success", "data": sanitized_list}

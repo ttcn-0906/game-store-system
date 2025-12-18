@@ -161,10 +161,10 @@ async def list_game_logic():
             print("No games found.")
             return []
 
-        print(f"{'No.':<4} | {'Game Name':<20} | {'ID':<10}")
-        print("-" * 40)
+        print(f"{'No.':<4} | {'Game Name':<10} | {'ID':<10} | {'Description':<20}")
+        print("-" * 50)
         for idx, game in enumerate(games, 1):
-            print(f"{idx:<4} | {game.get('gameName')[:8]:<20} | {game.get('gameId'):<10}")
+            print(f"{idx:<4} | {game.get('gameName'):<10} | {game.get('gameId')[:8]:<10} | {game.get('description'):<20}")
         return games
     else:
         print(f"[Error] Failed to fetch games: {response.get('errorMsg')}")
@@ -219,7 +219,7 @@ async def send_command(action, data=None):
             
             client_code_b64 = res_data.get("clientCode")
             if client_code_b64:
-                download_dir = "game"
+                download_dir = f"game/{client_state['name']}"
                 if not os.path.exists(download_dir):
                     os.makedirs(download_dir)
                 

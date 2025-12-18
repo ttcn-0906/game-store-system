@@ -102,7 +102,8 @@ async def handle_list_games(data):
                 sanitized_list.append({
                     "gameName": game.get("gameName"),
                     "owner": game.get("owner"),
-                    "gameId": game.get("id")
+                    "gameId": game.get("id"),
+                    "description": game.get("description")
                 })
 
             return {"status": "success", "data": sanitized_list}
@@ -120,6 +121,7 @@ async def handle_upload_game(data):
         return {"status": "error", "errorMsg": "Invalid session."}
 
     game_name = data.get("gameName", "untitled_game")
+    game_description = data.get("description", "N/A")
     files = data.get("files", [])
 
     if len(files) < 2:
@@ -150,6 +152,7 @@ async def handle_upload_game(data):
                 "id": unique_id,
                 "owner": ACTIVE_SESSIONS[session_id]["name"],
                 "gameName": game_name,
+                "description": game_description,
                 "folderPath": save_path
             }
         }
