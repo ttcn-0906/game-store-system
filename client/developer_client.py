@@ -67,7 +67,7 @@ async def list_game_logic():
             return []
 
         print(f"{'No.':<4} | {'Game Name':<10} | {'ID':<10} | {'Description':<20}")
-        print("-" * 40)
+        print("-" * 50)
         for idx, game in enumerate(games, 1):
             print(f"{idx:<4} | {game.get('gameName'):<10} | {game.get('gameId')[:8]:<10} | {game.get('description'):<20}")
         return games

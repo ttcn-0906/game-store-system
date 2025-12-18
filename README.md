@@ -26,6 +26,26 @@ The project is organized into administrative servers, user-facing clients, and g
 └── user_setup.sh            # Automation script for the end-user clients
 ```
 
+## Configuration (.env)
+
+Before running the servers or clients, you **must** create a `.env` file in the root directory. This file stores network configurations to avoid hardcoding IP addresses and ports.
+
+Create a file named `.env` and paste the following:
+
+```
+# Server Network Settings
+SERVER_HOST=127.0.0.1
+PLAYER_PORT=10001
+DEVELOPER_PORT=10002
+
+# Database Settings
+DB_HOST=127.0.0.1
+DB_PORT=10000
+
+# Game Room Settings
+GAME_SERVER_PORT_BASE=10003
+```
+
 ## Server Setup (Backend)
 
 The `server_setup.sh` script automates the deployment of the database and both management servers using **GNU Screen**.
